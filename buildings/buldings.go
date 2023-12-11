@@ -31,41 +31,48 @@ func (b Building) Info() {
 	}
 }
 
-func MakeBuilding() Building {
-
+func createFamily() family.Family {
 	member1 := familyComponent.FamilyMember{Name: "John", Age: 35, Gender: "Male"}
 	member2 := familyComponent.FamilyMember{Name: "Emily", Age: 30, Gender: "Female"}
 
-	family1 := family.Family{
-		Surname: "Smith",
-		Members: []familyComponent.FamilyMember{member1, member2},
-		Components: []family.FamilyComponent{
-			familyComponent.Budget{
-				Money:  100000,
-				Credit: 0,
-			},
-		},
+	return family.Family{
+		Surname:    "Smith",
+		Members:    []familyComponent.FamilyMember{member1, member2},
+		Components: []family.FamilyComponent{familyComponent.Budget{Money: 100000, Credit: 0}},
 	}
+}
 
+func createFurniture() furniture.Furniture {
 	item1 := furnitureComponents.Item{Name: "Стул", Material: "Дерево"}
 	item2 := furnitureComponents.Item{Name: "Стол", Material: "Стекло"}
 	item3 := furnitureComponents.Item{Name: "Диван", Material: "Ткань"}
 
-	furniture1 := furniture.Furniture{Items: []furniture.FurnitureComponents{item1, item2, item3}}
+	return furniture.Furniture{Items: []furniture.FurnitureComponents{item1, item2, item3}}
+}
 
+func createShapes() shape.Shape {
 	shape1 := shapeComponents.TypeOfShape{Type: "Прямоугльник"}
 	shape2 := shapeComponents.TypeOfShape{Type: "Круг"}
 	shape3 := shapeComponents.TypeOfShape{Type: "Треугольник"}
 
-	shapes := shape.Shape{Components: []shape.ShapeComponents{shape1, shape2, shape3}}
+	return shape.Shape{Components: []shape.ShapeComponents{shape1, shape2, shape3}}
+}
 
+func createWall() wall.Wall {
 	component1 := wallComponents.Window{Form: "Круглый", Size: "Большой"}
 	component2 := wallComponents.Door{Material: "Дерево", Size: "Большой"}
 
-	wall1 := wall.Wall{
+	return wall.Wall{
 		Material:   "Кирпич",
 		Components: []wall.WallComponents{component1, component2},
 	}
+}
+
+func MakeBuilding() Building {
+	family1 := createFamily()
+	furniture1 := createFurniture()
+	shapes := createShapes()
+	wall1 := createWall()
 
 	buildingTmp := Building{Components: []BuildingComponent{family1, furniture1, shapes, wall1}}
 	return buildingTmp
