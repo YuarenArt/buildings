@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  house-builder:
+    build: ./
+    command: ./awesome_project
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    environment:
+      - DB_NAME = test
+      - DB_USER = user
+      - DB_PASSWORD = 123
+  db:
+    restart: always
+    image: postgres:16-alpine
+    volumes:
+      - ./database/postgres/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD = 123
+    ports:
+      - 5436:5432
