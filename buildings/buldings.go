@@ -16,10 +16,6 @@ import (
 	wallComponents "structs/buildings/walls/wallComponents"
 )
 
-type BuildingComponent interface {
-	Info() string
-}
-
 type Building struct {
 	Components []BuildingComponent
 }
@@ -31,7 +27,18 @@ func (b Building) Info() {
 	}
 }
 
-func createFamily() family.Family {
+func MakeBuilding() Building {
+
+	family1 := createFamily()
+	furniture1 := createFurniture()
+	shapes := createShapes()
+	wall1 := createWall()
+
+	buildingTmp := Building{Components: []BuildingComponent{family1, furniture1, shapes, wall1}}
+	return buildingTmp
+}
+
+func createFamily() FamilyInterface {
 	member1 := familyComponent.FamilyMember{Name: "John", Age: 35, Gender: "Male"}
 	member2 := familyComponent.FamilyMember{Name: "Emily", Age: 30, Gender: "Female"}
 
@@ -42,7 +49,7 @@ func createFamily() family.Family {
 	}
 }
 
-func createFurniture() furniture.Furniture {
+func createFurniture() FurnitureInterface {
 	item1 := furnitureComponents.Item{Name: "Стул", Material: "Дерево"}
 	item2 := furnitureComponents.Item{Name: "Стол", Material: "Стекло"}
 	item3 := furnitureComponents.Item{Name: "Диван", Material: "Ткань"}
@@ -50,7 +57,7 @@ func createFurniture() furniture.Furniture {
 	return furniture.Furniture{Items: []furniture.FurnitureComponents{item1, item2, item3}}
 }
 
-func createShapes() shape.Shape {
+func createShapes() ShapeInterface {
 	shape1 := shapeComponents.TypeOfShape{Type: "Прямоугльник"}
 	shape2 := shapeComponents.TypeOfShape{Type: "Круг"}
 	shape3 := shapeComponents.TypeOfShape{Type: "Треугольник"}
@@ -58,7 +65,7 @@ func createShapes() shape.Shape {
 	return shape.Shape{Components: []shape.ShapeComponents{shape1, shape2, shape3}}
 }
 
-func createWall() wall.Wall {
+func createWall() WallInterface {
 	component1 := wallComponents.Window{Form: "Круглый", Size: "Большой"}
 	component2 := wallComponents.Door{Material: "Дерево", Size: "Большой"}
 
@@ -66,14 +73,4 @@ func createWall() wall.Wall {
 		Material:   "Кирпич",
 		Components: []wall.WallComponents{component1, component2},
 	}
-}
-
-func MakeBuilding() Building {
-	family1 := createFamily()
-	furniture1 := createFurniture()
-	shapes := createShapes()
-	wall1 := createWall()
-
-	buildingTmp := Building{Components: []BuildingComponent{family1, furniture1, shapes, wall1}}
-	return buildingTmp
 }
