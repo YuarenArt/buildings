@@ -1,9 +1,5 @@
 package buildings
 
-type BuildingComponent interface {
-	Info() string
-}
-
 type FamilyInterface interface {
 	Info() string
 }

@@ -16,6 +16,10 @@ import (
 	wallComponents "structs/buildings/walls/wallComponents"
 )
 
+type BuildingComponent interface {
+	Info() string
+}
+
 type Building struct {
 	Components []BuildingComponent
 }
