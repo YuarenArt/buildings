@@ -1,12 +1,16 @@
 package buldings
 
-import "fmt"
+import (
+	"fmt"
+	shapes "structs/buildings/shapes"
+)
 
 type Window struct {
-	Form string
-	Size string
+	Shape shapes.Shape
+	Size  string
+	Count int
 }
 
 func (w Window) Info() string {
-	return fmt.Sprintf("Тип окна: %s, размер: %s", w.Form, w.Size)
+	return fmt.Sprintf("Тип окна: \n%s, размер: %s, количество: %d", w.Shape.Info(), w.Size, w.Count)
 }

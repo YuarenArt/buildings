@@ -5,5 +5,5 @@ type TypeOfShape struct {
 }
 
 func (t TypeOfShape) Info() string {
-	return "Тип формы: " + t.Type + "\n"
+	return "Тип формы: " + t.Type
 }

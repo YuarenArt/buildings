@@ -1,11 +1,11 @@
 package buildings
 
-type FurnitureComponents interface {
+type FurnitureComponentsInterface interface {
 	Info() string
 }
 
 type Furniture struct {
-	Items []FurnitureComponents
+	Items []FurnitureComponentsInterface
 }
 
 func (f Furniture) Info() string {

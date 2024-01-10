@@ -10,9 +10,9 @@ type FamilyComponent interface {
 }
 
 type Family struct {
-	Surname    string
-	Members    []familyComponent.FamilyMember
-	Components []FamilyComponent
+	Surname string
+	Members []familyComponent.FamilyMember
+	Budget  familyComponent.Budget
 }
 
 func (f Family) Info() string {
@@ -20,8 +20,6 @@ func (f Family) Info() string {
 	for _, member := range f.Members {
 		info += member.Info()
 	}
-	for _, components := range f.Components {
-		info += components.Info()
-	}
+	info += f.Budget.Info()
 	return info + "\n"
 }

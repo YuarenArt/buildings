@@ -9,9 +9,9 @@ type Shape struct {
 }
 
 func (s Shape) Info() string {
-	info := "Информация о формах:\n"
+	info := "Информация о форме:\n"
 	for _, component := range s.Components {
 		info += component.Info()
 	}
-	return info + "\n"
+	return info
 }
