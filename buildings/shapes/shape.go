@@ -1,5 +1,9 @@
 package buildings
 
+type ShapeInterface interface {
+	Info() string
+}
+
 type ShapeComponents interface {
 	Info() string
 }

@@ -1,6 +1,12 @@
 package buildings
 
+import furnitureComponents "structs/buildings/furnitures/furnitureComponents"
+
 type FurnitureComponentsInterface interface {
+	Info() string
+}
+
+type FurnitureInterface interface {
 	Info() string
 }
 
@@ -14,4 +20,12 @@ func (f Furniture) Info() string {
 		info += item.Info()
 	}
 	return info + "\n"
+}
+
+func CreateFurniture() FurnitureInterface {
+	item1 := furnitureComponents.Item{Name: "Стул", Material: "Дерево"}
+	item2 := furnitureComponents.Item{Name: "Стол", Material: "Стекло"}
+	item3 := furnitureComponents.Item{Name: "Диван", Material: "Ткань"}
+
+	return Furniture{Items: []FurnitureComponentsInterface{item1, item2, item3}}
 }

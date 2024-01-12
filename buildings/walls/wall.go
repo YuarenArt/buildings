@@ -1,5 +1,15 @@
 package buldings
 
+import (
+	shapes "structs/buildings/shapes"
+	shapeComponents "structs/buildings/shapes/shapeComponents"
+	wallComponents "structs/buildings/walls/wallComponents"
+)
+
+type WallInterface interface {
+	Info() string
+}
+
 type WallComponents interface {
 	Info() string
 }
@@ -16,4 +26,18 @@ func (w Wall) Info() string {
 		info += component.Info() + "\n"
 	}
 	return info
+}
+
+func CreateWall() WallInterface {
+
+	shapeTypeRectangle := shapeComponents.TypeOfShape{Type: "Прямоугольник"}
+	shapeForWindow1 := shapes.Shape{Components: []shapes.ShapeComponents{shapeTypeRectangle}}
+
+	component1 := wallComponents.Window{Shape: shapeForWindow1, Size: "Большой"}
+	component2 := wallComponents.Door{Material: "Дерево", Size: "Большой"}
+
+	return Wall{
+		Material:   "Кирпич",
+		Components: []WallComponents{component1, component2},
+	}
 }

@@ -5,6 +5,10 @@ import (
 	familyComponent "structs/buildings/family/familyComponent"
 )
 
+type FamilyInterface interface {
+	Info() string
+}
+
 type FamilyComponent interface {
 	Info() string
 }
@@ -22,4 +26,15 @@ func (f Family) Info() string {
 	}
 	info += f.Budget.Info()
 	return info + "\n"
+}
+
+func CreateFamily() FamilyInterface {
+	member1 := familyComponent.FamilyMember{Name: "John", Age: 35, Gender: "Male"}
+	member2 := familyComponent.FamilyMember{Name: "Emily", Age: 30, Gender: "Female"}
+
+	return Family{
+		Surname: "Smith",
+		Members: []familyComponent.FamilyMember{member1, member2},
+		Budget:  familyComponent.Budget{Money: 1000000, Credit: 0},
+	}
 }
