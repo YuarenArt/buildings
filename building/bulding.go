@@ -1,10 +1,11 @@
-package buildings
+package building
 
 import (
 	"fmt"
-	family "structs/buildings/family"
-	furniture "structs/buildings/furnitures"
-	wall "structs/buildings/walls"
+	family "structs/building/family"
+	furniture "structs/building/furnitures"
+	"structs/building/layout"
+	wall "structs/building/walls"
 )
 
 type BuildingComponent interface {
@@ -22,12 +23,13 @@ func (b Building) Info() {
 	}
 }
 
-func MakeBuilding() Building {
+func CreateBuilding() Building {
 
 	family1 := family.CreateFamily()
 	furniture1 := furniture.CreateFurniture()
 	wall1 := wall.CreateWall()
+	layout1 := layout.CreateLayout()
 
-	buildingTmp := Building{Components: []BuildingComponent{family1, furniture1, wall1}}
+	buildingTmp := Building{Components: []BuildingComponent{layout1, family1, furniture1, wall1}}
 	return buildingTmp
 }

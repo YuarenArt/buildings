@@ -1,12 +1,12 @@
 package main
 
 import (
-	building "structs/buildings"
+	building "structs/building"
 )
 
 func main() {
 
-	building1 := building.MakeBuilding()
+	building1 := building.CreateBuilding()
 	building1.Info()
 
 }

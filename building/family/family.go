@@ -2,7 +2,7 @@ package buildings
 
 import (
 	"fmt"
-	familyComponent "structs/buildings/family/familyComponent"
+	familyComponent "structs/building/family/familyComponent"
 )
 
 type FamilyInterface interface {

@@ -1,9 +1,9 @@
 package buldings
 
 import (
-	shapes "structs/buildings/shapes"
-	shapeComponents "structs/buildings/shapes/shapeComponents"
-	wallComponents "structs/buildings/walls/wallComponents"
+	shapes "structs/building/shapes"
+	shapeComponents "structs/building/shapes/shapeComponents"
+	wallComponents "structs/building/walls/wallComponents"
 )
 
 type WallInterface interface {
