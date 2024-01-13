@@ -2,7 +2,7 @@ package buldings
 
 import (
 	"fmt"
-	shapes "structs/building/shapes"
+	shapes "structs/types/shapes"
 )
 
 type Window struct {

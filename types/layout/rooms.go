@@ -2,7 +2,7 @@ package layout
 
 import (
 	"fmt"
-	"structs/building/layout/room"
+	"structs/types/layout/room"
 )
 
 type LayoutInterface interface {

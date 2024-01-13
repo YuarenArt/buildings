@@ -2,14 +2,10 @@ package buildings
 
 import (
 	"fmt"
-	familyComponent "structs/building/family/familyComponent"
+	familyComponent "structs/types/family/familyComponent"
 )
 
 type FamilyInterface interface {
-	Info() string
-}
-
-type FamilyComponent interface {
 	Info() string
 }
 
@@ -28,7 +24,7 @@ func (f Family) Info() string {
 	return info + "\n"
 }
 
-func CreateFamily() FamilyInterface {
+func MakeFamily() FamilyInterface {
 	member1 := familyComponent.FamilyMember{Name: "John", Age: 35, Gender: "Male"}
 	member2 := familyComponent.FamilyMember{Name: "Emily", Age: 30, Gender: "Female"}
 

@@ -1,7 +1,7 @@
 package main
 
 import (
-	building "structs/building"
+	building "structs/types"
 )
 
 func main() {

@@ -1,7 +1,6 @@
 FROM golang:1.21-alpine
 
-RUN go version
-ENV GOPATH=/
+WORKDIR /app
 
 COPY ./ ./
 

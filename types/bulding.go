@@ -2,10 +2,10 @@ package building
 
 import (
 	"fmt"
-	family "structs/building/family"
-	furniture "structs/building/furnitures"
-	"structs/building/layout"
-	wall "structs/building/walls"
+	family "structs/types/family"
+	furniture "structs/types/furnitures"
+	"structs/types/layout"
+	wall "structs/types/walls"
 )
 
 type BuildingComponent interface {
@@ -25,7 +25,7 @@ func (b Building) Info() {
 
 func CreateBuilding() Building {
 
-	family1 := family.CreateFamily()
+	family1 := family.MakeFamily()
 	furniture1 := furniture.CreateFurniture()
 	wall1 := wall.CreateWall()
 	layout1 := layout.CreateLayout()

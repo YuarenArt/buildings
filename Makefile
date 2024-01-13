@@ -6,3 +6,4 @@ up:
 
 stop:
 	sudo docker-compose stop
+

@@ -4,12 +4,12 @@ type ShapeInterface interface {
 	Info() string
 }
 
-type ShapeComponents interface {
+type ShapeComponentsInterface interface {
 	Info() string
 }
 
 type Shape struct {
-	Components []ShapeComponents
+	Components []ShapeComponentsInterface
 }
 
 func (s Shape) Info() string {

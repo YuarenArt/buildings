@@ -1,6 +1,6 @@
 package buildings
 
-import furnitureComponents "structs/building/furnitures/furnitureComponents"
+import furnitureComponents "structs/types/furnitures/furnitureComponents"
 
 type FurnitureComponentsInterface interface {
 	Info() string
